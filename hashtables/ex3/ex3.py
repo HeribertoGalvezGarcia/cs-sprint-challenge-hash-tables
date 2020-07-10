@@ -1,25 +1,9 @@
-import itertools
+from functools import reduce
 from typing import List
 
 
 def intersection(arrays: List[List[int]]) -> List[int]:
-    """
-    YOUR CODE HERE
-    """
-
-    count = {}
-    result = []
-
-    for i in itertools.chain(*arrays):
-        try:
-            count[i] += 1
-        except KeyError:
-            count[i] = 1
-        else:
-            if count[i] == len(arrays):
-                result.append(i)
-
-    return result
+    return list(reduce(lambda x, y: x & y, [{i: True for i in a}.keys() for a in arrays]))
 
 
 def main() -> None:
