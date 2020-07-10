@@ -1,17 +1,19 @@
-# Your code here
+from collections import defaultdict
+from typing import List
 
 
+def finder(files: List[str], queries: List[str]) -> List[str]:
+    paths = defaultdict(list)
 
-def finder(files, queries):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    for full in files:
+        for path in full.split('/'):
+            if path:
+                paths[path].append(full)
 
-    return result
+    return [full for path in queries if (full_paths := paths.get(path)) is not None for full in full_paths]
 
 
-if __name__ == "__main__":
+def main() -> None:
     files = [
         '/bin/foo',
         '/bin/bar',
@@ -23,3 +25,7 @@ if __name__ == "__main__":
         "baz"
     ]
     print(finder(files, queries))
+
+
+if __name__ == '__main__':
+    main()

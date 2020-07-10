@@ -47,6 +47,7 @@ class TestEx2(unittest.TestCase):
         ]
 
         result = finder(files, queries)
+        print(result)
         result.sort()
 
         self.assertTrue(result == ['/dir256/dirb256/file256',
