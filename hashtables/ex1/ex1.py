@@ -2,10 +2,6 @@ from typing import List, Tuple, Optional
 
 
 def get_indices_of_item_weights(weights: List[int], length: int, limit: int) -> Optional[Tuple[int, int]]:
-    """
-    YOUR CODE HERE
-    """
-
     if length == 2 and sum(weights) == limit:
         return 1, 0
 

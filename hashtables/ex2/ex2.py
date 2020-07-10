@@ -9,9 +9,6 @@ class Ticket:
 
 
 def reconstruct_trip(tickets: List[Ticket], length: int) -> List[str]:
-    """
-    YOUR CODE HERE
-    """
     tickets = {ticket.source: ticket.destination for ticket in tickets}
 
     route = [tickets["NONE"]]

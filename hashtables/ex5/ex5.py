@@ -3,10 +3,6 @@ from typing import List
 
 
 def finder(files: List[str], queries: List[str]) -> List[str]:
-    """
-    YOUR CODE HERE
-    """
-
     paths = defaultdict(list)
 
     for full in files:
@@ -17,7 +13,7 @@ def finder(files: List[str], queries: List[str]) -> List[str]:
     return [full for path in queries if (full_paths := paths.get(path)) is not None for full in full_paths]
 
 
-if __name__ == "__main__":
+def main() -> None:
     files = [
         '/bin/foo',
         '/bin/bar',
@@ -29,3 +25,7 @@ if __name__ == "__main__":
         "baz"
     ]
     print(finder(files, queries))
+
+
+if __name__ == '__main__':
+    main()
